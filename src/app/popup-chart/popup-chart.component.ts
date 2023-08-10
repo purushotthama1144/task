@@ -35,6 +35,22 @@ export class PopupChartComponent implements OnInit{
   emergingShortTerm: any;
   southAmericanDonut: any;
   southAmericanShortTerm: any;
+  biotechnologyDonut: any;
+  biotechnologyShortTerm: any;
+  semiconductorDonut: any;
+  semiconductorShortTerm: any;
+  airlineDonut:any;
+  airlineShortTerm:any;
+  regionalBankDonut:any;
+  regionalBankShortTerm:any;
+  solarDonut:any;
+  solarShortTerm:any;
+  healthcareDonut:any;
+  healthcareShortTerm:any;
+  builderDonut:any;
+  builderShortTerm:any;
+  materialDonut:any;
+  materialShortTerm:any;
 
   constructor() {}
 
@@ -51,6 +67,14 @@ export class PopupChartComponent implements OnInit{
     this.europeonMarket();
     this.emergingMarket();
     this.southAmericanMarket();
+    this.biotechnology();
+    this.semiconductor();
+    this.airlines();
+    this.regionalBank();
+    this.solar();
+    this.healthcare();
+    this.homeBuilder();
+    this.materials();
   }
 
   shortTermChart() {
@@ -60,8 +84,20 @@ export class PopupChartComponent implements OnInit{
     this.shortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       labels: dataLabels,
       responsive: [
@@ -87,7 +123,7 @@ export class PopupChartComponent implements OnInit{
     this.intermediateTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "pie"
       },
       labels: dataLabels,
@@ -114,7 +150,7 @@ export class PopupChartComponent implements OnInit{
     this.longTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "pie"
       },
       labels: dataLabels,
@@ -141,7 +177,7 @@ export class PopupChartComponent implements OnInit{
     this.dowDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -170,8 +206,20 @@ export class PopupChartComponent implements OnInit{
     this.dowShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -199,7 +247,7 @@ export class PopupChartComponent implements OnInit{
     this.dowIndexElement = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -233,7 +281,7 @@ export class PopupChartComponent implements OnInit{
     this.sandpDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -262,8 +310,20 @@ export class PopupChartComponent implements OnInit{
     this.sandpShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -291,7 +351,7 @@ export class PopupChartComponent implements OnInit{
     this.sandpIndexElement = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -325,7 +385,7 @@ export class PopupChartComponent implements OnInit{
     this.nasdaqDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -354,8 +414,20 @@ export class PopupChartComponent implements OnInit{
     this.nasdaqShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -383,7 +455,7 @@ export class PopupChartComponent implements OnInit{
     this.nasdaqIndexElement = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -417,7 +489,7 @@ export class PopupChartComponent implements OnInit{
     this.midcapDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -446,8 +518,20 @@ export class PopupChartComponent implements OnInit{
     this.midcapShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -475,7 +559,7 @@ export class PopupChartComponent implements OnInit{
     this.midcapIndexElement = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -509,7 +593,7 @@ export class PopupChartComponent implements OnInit{
     this.smallcapDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -538,8 +622,20 @@ export class PopupChartComponent implements OnInit{
     this.smallcapShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -567,7 +663,7 @@ export class PopupChartComponent implements OnInit{
     this.smallcapIndexElement = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -601,7 +697,7 @@ export class PopupChartComponent implements OnInit{
     this.europeonDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -630,8 +726,20 @@ export class PopupChartComponent implements OnInit{
     this.europeonShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -664,7 +772,7 @@ export class PopupChartComponent implements OnInit{
     this.emergingDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -693,8 +801,20 @@ export class PopupChartComponent implements OnInit{
     this.emergingShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",
@@ -727,7 +847,7 @@ export class PopupChartComponent implements OnInit{
     this.southAmericanDonut = {
       series: dataSeries,
       chart: {
-        width: 380,
+        width: 300,
         type: "donut"
       },
       title: {
@@ -756,8 +876,620 @@ export class PopupChartComponent implements OnInit{
     this.southAmericanShortTerm = {
       series: dataSeries,
       chart: {
-        width: 380,
-        type: "pie"
+        width: 300,
+        type: "donut"
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  biotechnology() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.biotechnologyDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.biotechnologyShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  semiconductor() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.semiconductorDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.semiconductorShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  } 
+
+  airlines() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.airlineDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.airlineShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  regionalBank() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.regionalBankDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.regionalBankShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  solar() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.solarDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.solarShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  healthcare() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.healthcareDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.healthcareShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+  
+  homeBuilder() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.builderDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.builderShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  materials() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.materialDonut = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.materialShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 300,
+        type: "donut",
+      },
+      plotOptions: {
+        pie: {
+          startAngle: -90,
+          endAngle: 90,
+          offsetY: 10
+        }
+      },
+      grid: {
+        padding: {
+          bottom: -80
+        }
       },
       title: {
         text: "short term opinion:",

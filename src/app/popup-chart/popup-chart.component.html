@@ -3,224 +3,695 @@
   <button mat-button mat-dialog-close>Close</button>
 </div> -->
 
-<h1>
+<h1 class="text-center">
     Insights for {{date | date}}
 </h1>
-<div class="chart-wrap">
+<div class="chart-group">
     <h3>Summary:</h3>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart-title">
-                In the short term:
+    <div class="chart-wrap">
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart-title">
+                    In the short term:
+                </div>
+                <div class="chart">
+                    <apx-chart [series]="shortTerm.series" [chart]="shortTerm.chart" [labels]="shortTerm.labels"
+                        [grid]="shortTerm.grid" [plotOptions]="shortTerm.plotOptions"
+                        [responsive]="shortTerm.responsive"></apx-chart>
+                </div>
             </div>
-            <div class="chart">
-                <apx-chart [series]="shortTerm.series" [chart]="shortTerm.chart" [labels]="shortTerm.labels"
-                    [responsive]="shortTerm.responsive"></apx-chart>
+            <div class="chart-inner-wrap">
+                <div class="chart-title">
+                    In the intermediate term:
+                </div>
+                <div class="chart">
+                    <apx-chart [series]="intermediateTerm.series" [chart]="intermediateTerm.chart"
+                        [labels]="intermediateTerm.labels" [responsive]="intermediateTerm.responsive"></apx-chart>
+                </div>
             </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart-title">
-                In the intermediate term:
-            </div>
-            <div class="chart">
-                <apx-chart [series]="intermediateTerm.series" [chart]="intermediateTerm.chart"
-                    [labels]="intermediateTerm.labels" [responsive]="intermediateTerm.responsive"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart-title">
-                In the long term:
-            </div>
-            <div class="chart">
-                <apx-chart [series]="longTerm.series" [chart]="longTerm.chart" [labels]="longTerm.labels"
-                    [responsive]="longTerm.responsive"></apx-chart>
+            <div class="chart-inner-wrap">
+                <div class="chart-title">
+                    In the long term:
+                </div>
+                <div class="chart">
+                    <apx-chart [series]="longTerm.series" [chart]="longTerm.chart" [labels]="longTerm.labels"
+                        [responsive]="longTerm.responsive"></apx-chart>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<div class="chart-wrap">
+<div class="chart-group">
     <h3>Index performance:</h3>
-    <h4>Dow 30:</h4>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="dowDonut.series" [chart]="dowDonut.chart" [labels]="dowDonut.labels"
-                    [responsive]="dowDonut.responsive" [title]="dowDonut.title"></apx-chart>
+    <div class="chart-wrap">
+        <h4>Dow 30:</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="dowDonut.series" [chart]="dowDonut.chart" [labels]="dowDonut.labels"
+                        [responsive]="dowDonut.responsive" [title]="dowDonut.title"></apx-chart>
+                </div>
             </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="dowShortTerm.series" [chart]="dowShortTerm.chart" [labels]="dowShortTerm.labels"
-                    [responsive]="dowShortTerm.responsive" [title]="dowShortTerm.title"></apx-chart>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="dowShortTerm.series" [chart]="dowShortTerm.chart"
+                        [labels]="dowShortTerm.labels" [responsive]="dowShortTerm.responsive" [grid]="dowShortTerm.grid"
+                        [plotOptions]="dowShortTerm.plotOptions" [title]="dowShortTerm.title"></apx-chart>
+                </div>
             </div>
-        </div>
 
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="dowIndexElement.series" [chart]="dowIndexElement.chart"
-                    [labels]="dowIndexElement.labels" [responsive]="dowIndexElement.responsive"
-                    [title]="dowIndexElement.title"></apx-chart>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="dowIndexElement.series" [chart]="dowIndexElement.chart"
+                        [labels]="dowIndexElement.labels" [responsive]="dowIndexElement.responsive"
+                        [title]="dowIndexElement.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrap">
+        <h3>S&P 500:</h3>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="sandpDonut.series" [chart]="sandpDonut.chart" [labels]="sandpDonut.labels"
+                        [responsive]="sandpDonut.responsive" [title]="sandpDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="sandpShortTerm.series" [chart]="sandpShortTerm.chart"
+                        [labels]="sandpShortTerm.labels" [responsive]="sandpShortTerm.responsive"
+                        [grid]="sandpShortTerm.grid" [plotOptions]="sandpShortTerm.plotOptions"
+                        [title]="sandpShortTerm.title"></apx-chart>
+                </div>
+            </div>
+
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="sandpIndexElement.series" [chart]="sandpIndexElement.chart"
+                        [labels]="sandpIndexElement.labels" [responsive]="sandpIndexElement.responsive"
+                        [title]="sandpIndexElement.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrap">
+        <h3>NASDAQ</h3>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="nasdaqDonut.series" [chart]="nasdaqDonut.chart" [labels]="nasdaqDonut.labels"
+                        [responsive]="nasdaqDonut.responsive" [title]="nasdaqDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="nasdaqShortTerm.series" [chart]="nasdaqShortTerm.chart"
+                        [labels]="nasdaqShortTerm.labels" [responsive]="nasdaqShortTerm.responsive"
+                        [grid]="nasdaqShortTerm.grid" [plotOptions]="nasdaqShortTerm.plotOptions"
+                        [title]="nasdaqShortTerm.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="nasdaqIndexElement.series" [chart]="nasdaqIndexElement.chart"
+                        [labels]="nasdaqIndexElement.labels" [responsive]="nasdaqIndexElement.responsive"
+                        [title]="nasdaqIndexElement.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrap">
+        <h3>MidCap</h3>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="midcapDonut.series" [chart]="midcapDonut.chart" [labels]="midcapDonut.labels"
+                        [responsive]="midcapDonut.responsive" [title]="midcapDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="midcapShortTerm.series" [chart]="midcapShortTerm.chart"
+                        [labels]="midcapShortTerm.labels" [responsive]="midcapShortTerm.responsive"
+                        [grid]="midcapShortTerm.grid" [plotOptions]="midcapShortTerm.plotOptions"
+                        [title]="midcapShortTerm.title"></apx-chart>
+                </div>
+            </div>
+
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="midcapIndexElement.series" [chart]="midcapIndexElement.chart"
+                        [labels]="midcapIndexElement.labels" [responsive]="midcapIndexElement.responsive"
+                        [title]="midcapIndexElement.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrap">
+        <h3>Small cap</h3>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="smallcapDonut.series" [chart]="smallcapDonut.chart"
+                        [labels]="smallcapDonut.labels" [responsive]="smallcapDonut.responsive"
+                        [title]="smallcapDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="smallcapShortTerm.series" [chart]="smallcapShortTerm.chart"
+                        [labels]="smallcapShortTerm.labels" [responsive]="smallcapShortTerm.responsive"
+                        [grid]="smallcapShortTerm.grid" [plotOptions]="smallcapShortTerm.plotOptions"
+                        [title]="smallcapShortTerm.title"></apx-chart>
+                </div>
+            </div>
+
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="smallcapIndexElement.series" [chart]="smallcapIndexElement.chart"
+                        [labels]="smallcapIndexElement.labels" [responsive]="smallcapIndexElement.responsive"
+                        [title]="smallcapIndexElement.title"></apx-chart>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="chart-wrap">
-    <h3>S&P 500:</h3>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="sandpDonut.series" [chart]="sandpDonut.chart" [labels]="sandpDonut.labels"
-                    [responsive]="sandpDonut.responsive" [title]="sandpDonut.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="sandpShortTerm.series" [chart]="sandpShortTerm.chart" [labels]="sandpShortTerm.labels"
-                    [responsive]="sandpShortTerm.responsive" [title]="sandpShortTerm.title"></apx-chart>
-            </div>
-        </div>
-
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="sandpIndexElement.series" [chart]="sandpIndexElement.chart"
-                    [labels]="sandpIndexElement.labels" [responsive]="sandpIndexElement.responsive"
-                    [title]="sandpIndexElement.title"></apx-chart>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="chart-wrap">
-    <h3>NASDAQ</h3>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="nasdaqDonut.series" [chart]="nasdaqDonut.chart" [labels]="nasdaqDonut.labels"
-                    [responsive]="nasdaqDonut.responsive" [title]="nasdaqDonut.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="nasdaqShortTerm.series" [chart]="nasdaqShortTerm.chart" [labels]="nasdaqShortTerm.labels"
-                    [responsive]="nasdaqShortTerm.responsive" [title]="nasdaqShortTerm.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="nasdaqIndexElement.series" [chart]="nasdaqIndexElement.chart"
-                    [labels]="nasdaqIndexElement.labels" [responsive]="nasdaqIndexElement.responsive"
-                    [title]="nasdaqIndexElement.title"></apx-chart>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="chart-wrap">
-    <h3>MidCap</h3>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="midcapDonut.series" [chart]="midcapDonut.chart" [labels]="midcapDonut.labels"
-                    [responsive]="midcapDonut.responsive" [title]="midcapDonut.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="midcapShortTerm.series" [chart]="midcapShortTerm.chart" [labels]="midcapShortTerm.labels"
-                    [responsive]="midcapShortTerm.responsive" [title]="midcapShortTerm.title"></apx-chart>
-            </div>
-        </div>
-
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="midcapIndexElement.series" [chart]="midcapIndexElement.chart"
-                    [labels]="midcapIndexElement.labels" [responsive]="midcapIndexElement.responsive"
-                    [title]="midcapIndexElement.title"></apx-chart>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="chart-wrap">
-    <h3>Small cap</h3>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="smallcapDonut.series" [chart]="smallcapDonut.chart" [labels]="smallcapDonut.labels"
-                    [responsive]="smallcapDonut.responsive" [title]="smallcapDonut.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="smallcapShortTerm.series" [chart]="smallcapShortTerm.chart" [labels]="smallcapShortTerm.labels"
-                    [responsive]="smallcapShortTerm.responsive" [title]="smallcapShortTerm.title"></apx-chart>
-            </div>
-        </div>
-
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="smallcapIndexElement.series" [chart]="smallcapIndexElement.chart"
-                    [labels]="smallcapIndexElement.labels" [responsive]="smallcapIndexElement.responsive"
-                    [title]="smallcapIndexElement.title"></apx-chart>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="chart-wrap">
+<div class="chart-group">
     <h3>Global Markets performance:</h3>
-    <h4>European Markets</h4>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="europeonDonut.series" [chart]="europeonDonut.chart" [labels]="europeonDonut.labels"
-                    [responsive]="europeonDonut.responsive" [title]="europeonDonut.title"></apx-chart>
+    <div class="chart-wrap">
+        <h4>European Markets</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="europeonDonut.series" [chart]="europeonDonut.chart"
+                        [labels]="europeonDonut.labels" [responsive]="europeonDonut.responsive"
+                        [title]="europeonDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="europeonShortTerm.series" [chart]="europeonShortTerm.chart"
+                        [labels]="europeonShortTerm.labels" [grid]="europeonShortTerm.grid"
+                        [plotOptions]="europeonShortTerm.plotOptions" [responsive]="europeonShortTerm.responsive"
+                        [title]="europeonShortTerm.title"></apx-chart>
+                </div>
             </div>
         </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="europeonShortTerm.series" [chart]="europeonShortTerm.chart" [labels]="europeonShortTerm.labels"
-                    [responsive]="europeonShortTerm.responsive" [title]="europeonShortTerm.title"></apx-chart>
+    </div>
+
+    <div class="chart-wrap">
+        <h4>Emerging Markets</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="emergingDonut.series" [chart]="emergingDonut.chart"
+                        [labels]="emergingDonut.labels" [responsive]="emergingDonut.responsive"
+                        [title]="emergingDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="emergingShortTerm.series" [chart]="emergingShortTerm.chart"
+                        [labels]="emergingShortTerm.labels" [responsive]="emergingShortTerm.responsive"
+                        [grid]="emergingShortTerm.grid" [plotOptions]="emergingShortTerm.plotOptions"
+                        [title]="emergingShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="chart-wrap">
+        <h4>South American Markets</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="southAmericanDonut.series" [chart]="southAmericanDonut.chart"
+                        [labels]="southAmericanDonut.labels" [responsive]="southAmericanDonut.responsive"
+                        [title]="southAmericanDonut.title"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="southAmericanShortTerm.series" [chart]="southAmericanShortTerm.chart"
+                        [labels]="southAmericanShortTerm.labels" [responsive]="southAmericanShortTerm.responsive"
+                        [grid]="southAmericanShortTerm.grid" [plotOptions]="southAmericanShortTerm.plotOptions"
+                        [title]="southAmericanShortTerm.title"></apx-chart>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<div class="chart-wrap">
-    <h4>Emerging Markets</h4>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="emergingDonut.series" [chart]="emergingDonut.chart" [labels]="emergingDonut.labels"
-                    [responsive]="emergingDonut.responsive" [title]="emergingDonut.title"></apx-chart>
+<div class="chart-group">
+    <h3>Sector performance:</h3>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
             </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="emergingShortTerm.series" [chart]="emergingShortTerm.chart" [labels]="emergingShortTerm.labels"
-                    [responsive]="emergingShortTerm.responsive" [title]="emergingShortTerm.title"></apx-chart>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="chart-wrap">
-    <h4>South American Markets</h4>
-    <div class="chart-outer-wrap">
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="southAmericanDonut.series" [chart]="southAmericanDonut.chart" [labels]="southAmericanDonut.labels"
-                    [responsive]="southAmericanDonut.responsive" [title]="southAmericanDonut.title"></apx-chart>
-            </div>
-        </div>
-        <div class="chart-inner-wrap">
-            <div class="chart">
-                <apx-chart [series]="southAmericanShortTerm.series" [chart]="southAmericanShortTerm.chart" [labels]="southAmericanShortTerm.labels"
-                    [responsive]="southAmericanShortTerm.responsive" [title]="southAmericanShortTerm.title"></apx-chart>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
             </div>
         </div>
     </div>
+    <div class="chart-wrap">
+        <h4>Semiconductor</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="semiconductorDonut.series" [chart]="semiconductorDonut.chart"
+                        [labels]="semiconductorDonut.labels" [responsive]="semiconductorDonut.responsive"
+                        [title]="semiconductorDonut.title" [grid]="semiconductorDonut.grid"
+                        [plotOptions]="semiconductorDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="semiconductorShortTerm.series" [chart]="semiconductorShortTerm.chart"
+                        [labels]="semiconductorShortTerm.labels" [responsive]="semiconductorShortTerm.responsive"
+                        [grid]="semiconductorShortTerm.grid" [plotOptions]="semiconductorShortTerm.plotOptions"
+                        [title]="semiconductorShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Airlines</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="airlineDonut.series" [chart]="airlineDonut.chart"
+                        [labels]="airlineDonut.labels" [responsive]="airlineDonut.responsive"
+                        [title]="airlineDonut.title" [grid]="airlineDonut.grid"
+                        [plotOptions]="airlineDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="airlineShortTerm.chart"
+                        [labels]="airlineShortTerm.labels" [responsive]="airlineShortTerm.responsive"
+                        [grid]="airlineShortTerm.grid" [plotOptions]="airlineShortTerm.plotOptions"
+                        [title]="airlineShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Regional Banks</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="regionalBankDonut.series" [chart]="regionalBankDonut.chart"
+                        [labels]="regionalBankDonut.labels" [responsive]="regionalBankDonut.responsive"
+                        [title]="regionalBankDonut.title" [grid]="regionalBankDonut.grid"
+                        [plotOptions]="regionalBankDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="regionalBankShortTerm.chart"
+                        [labels]="regionalBankShortTerm.labels" [responsive]="regionalBankShortTerm.responsive"
+                        [grid]="regionalBankShortTerm.grid" [plotOptions]="regionalBankShortTerm.plotOptions"
+                        [title]="regionalBankShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="chart-wrap">
+        <h4>Solar</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="solarDonut.series" [chart]="solarDonut.chart"
+                        [labels]="solarDonut.labels" [responsive]="solarDonut.responsive"
+                        [title]="solarDonut.title" [grid]="solarDonut.grid"
+                        [plotOptions]="solarDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="solarShortTerm.series" [chart]="solarShortTerm.chart"
+                        [labels]="solarShortTerm.labels" [responsive]="solarShortTerm.responsive"
+                        [grid]="solarShortTerm.grid" [plotOptions]="solarShortTerm.plotOptions"
+                        [title]="solarShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Healthcare</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="healthcareDonut.series" [chart]="healthcareDonut.chart"
+                        [labels]="healthcareDonut.labels" [responsive]="healthcareDonut.responsive"
+                        [title]="healthcareDonut.title" [grid]="healthcareDonut.grid"
+                        [plotOptions]="healthcareDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="healthcareShortTerm.series" [chart]="healthcareShortTerm.chart"
+                        [labels]="healthcareShortTerm.labels" [responsive]="healthcareShortTerm.responsive"
+                        [grid]="healthcareShortTerm.grid" [plotOptions]="healthcareShortTerm.plotOptions"
+                        [title]="healthcareShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Homebuilder</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="builderDonut.series" [chart]="builderDonut.chart"
+                        [labels]="builderDonut.labels" [responsive]="builderDonut.responsive"
+                        [title]="builderDonut.title" [grid]="builderDonut.grid"
+                        [plotOptions]="builderDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="builderShortTerm.series" [chart]="builderShortTerm.chart"
+                        [labels]="builderShortTerm.labels" [responsive]="builderShortTerm.responsive"
+                        [grid]="builderShortTerm.grid" [plotOptions]="builderShortTerm.plotOptions"
+                        [title]="builderShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Materials</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="materialDonut.series" [chart]="materialDonut.chart"
+                        [labels]="materialDonut.labels" [responsive]="materialDonut.responsive"
+                        [title]="materialDonut.title" [grid]="materialDonut.grid"
+                        [plotOptions]="materialDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="materialShortTerm.series" [chart]="materialShortTerm.chart"
+                        [labels]="materialShortTerm.labels" [responsive]="materialShortTerm.responsive"
+                        [grid]="materialShortTerm.grid" [plotOptions]="materialShortTerm.plotOptions"
+                        [title]="materialShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+     <!--  <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="chart-wrap">
+        <h4>Biotechnology</h4>
+        <div class="chart-outer-wrap">
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyDonut.series" [chart]="biotechnologyDonut.chart"
+                        [labels]="biotechnologyDonut.labels" [responsive]="biotechnologyDonut.responsive"
+                        [title]="biotechnologyDonut.title" [grid]="biotechnologyDonut.grid"
+                        [plotOptions]="biotechnologyDonut.plotOptions"></apx-chart>
+                </div>
+            </div>
+            <div class="chart-inner-wrap">
+                <div class="chart">
+                    <apx-chart [series]="biotechnologyShortTerm.series" [chart]="biotechnologyShortTerm.chart"
+                        [labels]="biotechnologyShortTerm.labels" [responsive]="biotechnologyShortTerm.responsive"
+                        [grid]="biotechnologyShortTerm.grid" [plotOptions]="biotechnologyShortTerm.plotOptions"
+                        [title]="biotechnologyShortTerm.title"></apx-chart>
+                </div>
+            </div>
+        </div>
+    </div> -->
 </div>
