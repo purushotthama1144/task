@@ -14,12 +14,15 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import { NgGanttEditorModule } from 'ng-gantt';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { PopupChartComponent } from './popup-chart/popup-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChartComponent,
-    TableComponent
+    TableComponent,
+    PopupChartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,6 +35,7 @@ import { NgGanttEditorModule } from 'ng-gantt';
     MatCheckboxModule,
     MatButtonModule,
     MatTreeModule,
+    NgApexchartsModule,
     NgGanttEditorModule
   ],
   providers: [ChecklistDatabase],
