@@ -13,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
+import { MatDialogModule } from '@angular/material/dialog';
 import { NgGanttEditorModule } from 'ng-gantt';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PopupChartComponent } from './popup-chart/popup-chart.component';
@@ -35,6 +36,7 @@ import { PopupChartComponent } from './popup-chart/popup-chart.component';
     MatCheckboxModule,
     MatButtonModule,
     MatTreeModule,
+    MatDialogModule,
     NgApexchartsModule,
     NgGanttEditorModule
   ],

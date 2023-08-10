@@ -1,42 +1,21 @@
-import { Component, ViewChild } from '@angular/core';
-import {
-  ChartComponent,
-  ApexAxisChartSeries,
-  ApexChart,
-  ApexXAxis,
-  ApexDataLabels,
-  ApexTitleSubtitle,
-  ApexStroke,
-  ApexGrid,
-  ApexAnnotations,
-} from 'ng-apexcharts';
-
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
 import { series , marketPerformence} from './data'
-
-export type ChartOptions = {
-  series: ApexAxisChartSeries;
-  annotations: ApexAnnotations;
-  chart: ApexChart;
-  xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  grid: ApexGrid;
-  labels: string[];
-  stroke: ApexStroke;
-  title: ApexTitleSubtitle;
-};
-
 
 @Component({
   selector: 'app-popup-chart',
   templateUrl: './popup-chart.component.html',
   styleUrls: ['./popup-chart.component.css']
 })
-export class PopupChartComponent {
+
+export class PopupChartComponent implements OnInit{
   @ViewChild('chart') chart: ChartComponent = {} as ChartComponent;
   chartOptions: any;
   donutChartOption: any;
 
-  constructor() {
+  constructor() {}
+
+  ngOnInit(): void {
     this.areaChart();
     this.donutChart()
   }
@@ -107,8 +86,6 @@ export class PopupChartComponent {
     const sectorNames = marketPerformence.sectorPerformance.map(sector => sector.name);
     const sectorValues = marketPerformence.sectorPerformance.map(sector => sector.value);
 
-    console.log(sectorNames)
-
     this.donutChartOption = {
       series: sectorValues,
       chart: {
@@ -130,5 +107,4 @@ export class PopupChartComponent {
       ]
     };
   }
-
 }
