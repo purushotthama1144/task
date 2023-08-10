@@ -1,5 +1,8 @@
-.chart {
-    width: 500px;
-    height: 300px;
-    margin: auto;
+.chart-outer-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.chart-inner-wrap {
+    width: calc(33.33% - 40px);
+    padding: 20px;
 }

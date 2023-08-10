@@ -20,7 +20,7 @@ import { PopupChartComponent } from './popup-chart/popup-chart.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,  
     ChartComponent,
     TableComponent,
     PopupChartComponent

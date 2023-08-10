@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
-import { series , marketPerformence} from './data'
+import { dataList } from './data'
 
 @Component({
   selector: 'app-popup-chart',
@@ -10,88 +10,60 @@ import { series , marketPerformence} from './data'
 
 export class PopupChartComponent implements OnInit{
   @ViewChild('chart') chart: ChartComponent = {} as ChartComponent;
-  chartOptions: any;
-  donutChartOption: any;
+  date:any;
+  shortTerm: any;
+  intermediateTerm: any;
+  longTerm: any;
+  dowDonut: any;
+  dowShortTerm: any;
+  dowIndexElement: any;
+  sandpDonut: any;
+  sandpShortTerm: any;
+  sandpIndexElement: any;
+  nasdaqDonut: any;
+  nasdaqShortTerm: any;
+  nasdaqIndexElement: any;
+  midcapDonut: any;
+  midcapShortTerm: any;
+  midcapIndexElement: any;
+  smallcapDonut: any;
+  smallcapShortTerm: any;
+  smallcapIndexElement: any;
+  europeonDonut: any;
+  europeonShortTerm: any;
+  emergingDonut: any;
+  emergingShortTerm: any;
+  southAmericanDonut: any;
+  southAmericanShortTerm: any;
 
   constructor() {}
 
   ngOnInit(): void {
-    this.areaChart();
-    this.donutChart()
+    this.date = Date.now()
+    this.shortTermChart();
+    this.intermediateTermChart();
+    this.longTermChart();
+    this.dowThirty();
+    this.sandpFiveHundred();
+    this.NASDAQ();
+    this.midCap();
+    this.smallCap();
+    this.europeonMarket();
+    this.emergingMarket();
+    this.southAmericanMarket();
   }
 
-  areaChart() {
-    this.chartOptions = {
-      series: [
-        {
-          name: 'Price-1',
-          data: series.monthDataSeries1.prices,
-        },
-        {
-          name: 'Price-2',
-          data: series.monthDataSeries2.prices,
-        },
-      ],
-      chart: {
-        type: 'line',
-      },
-      annotations: {
-        points: [
-          {
-            x: new Date('01 Dec 2017').getTime(),
-            y: 8900,
-            marker: {
-              size: 6,
-              fillColor: '#fff',
-              strokeColor: 'red',
-              radius: 2,
-            },
-            label: {
-              text: 'Data feature',
-              borderColor: '#FF4560',
-              offsetY: 0,
-              style: {
-                color: '#fff',
-                background: '#FF4560',
-              },
-            },
-          },
-        ],
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      stroke: {
-        curve: 'straight',
-        width: 3,
-      },
-      grid: {
-        padding: {
-          right: 30,
-          left: 20,
-        },
-      },
-      title: {
-        text: 'Notification anomalies',
-        align: 'left',
-      },
-      labels: series.monthDataSeries1.dates,
-      xaxis: {
-        type: 'datetime',
-      },
-    };
-  }
+  shortTermChart() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
 
-  donutChart() {
-    const sectorNames = marketPerformence.sectorPerformance.map(sector => sector.name);
-    const sectorValues = marketPerformence.sectorPerformance.map(sector => sector.value);
-
-    this.donutChartOption = {
-      series: sectorValues,
+    this.shortTerm = {
+      series: dataSeries,
       chart: {
-        type: "donut"
+        width: 380,
+        type: "pie"
       },
-      labels: sectorNames,
+      labels: dataLabels,
       responsive: [
         {
           breakpoint: 480,
@@ -100,11 +72,714 @@ export class PopupChartComponent implements OnInit{
               width: 200
             },
             legend: {
-              position: "top"
+              position: "bottom"
             }
           }
         }
       ]
     };
   }
+
+  intermediateTermChart() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.intermediateTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  longTermChart() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.longTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  dowThirty() {
+    let dataLabels = dataList.opinion.map(sector => sector.name);
+    let dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.dowDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.dowShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.dowIndexElement = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "Index component up down:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  sandpFiveHundred() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.sandpDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.sandpShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.sandpIndexElement = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "Index component up down:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  NASDAQ() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.nasdaqDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.nasdaqShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.nasdaqIndexElement = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "Index component up down:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  midCap() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.midcapDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.midcapShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.midcapIndexElement = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "Index component up down:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  smallCap() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.smallcapDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.smallcapShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.smallcapIndexElement = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "Index component up down:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  europeonMarket() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.europeonDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.europeonShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
+
+  emergingMarket() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.emergingDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.emergingShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  } 
+
+  southAmericanMarket() {
+    const dataLabels = dataList.opinion.map(sector => sector.name);
+    const dataSeries = dataList.opinion.map(sector => sector.value);
+
+    this.southAmericanDonut = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "donut"
+      },
+      title: {
+        text: "doughnut Doughnut Chart:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+
+    this.southAmericanShortTerm = {
+      series: dataSeries,
+      chart: {
+        width: 380,
+        type: "pie"
+      },
+      title: {
+        text: "short term opinion:",
+        align: "left",
+        style: {
+          fontSize: "12px"
+        }
+      },
+      labels: dataLabels,
+      responsive: [
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: "bottom"
+            }
+          }
+        }
+      ]
+    };
+  }  
 }
