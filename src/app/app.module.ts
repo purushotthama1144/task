@@ -15,10 +15,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatCardModule} from '@angular/material/card';
 import { NgGanttEditorModule } from 'ng-gantt';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PopupChartComponent } from './popup-chart/popup-chart.component';
 import { PopupTableComponent } from './popup-table/popup-table.component';
+import { DialogDataComponent } from './dialog-data/dialog-data.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PopupTableComponent } from './popup-table/popup-table.component';
     ChartComponent,
     TableComponent,
     PopupChartComponent,
-    PopupTableComponent
+    PopupTableComponent,
+    DialogDataComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { PopupTableComponent } from './popup-table/popup-table.component';
     MatTreeModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatCardModule,
     NgApexchartsModule,
     NgGanttEditorModule,
     

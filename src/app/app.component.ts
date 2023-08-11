@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { PopupChartComponent } from './popup-chart/popup-chart.component';
 import { MatDialog } from '@angular/material/dialog';
+import { DialogDataComponent } from './dialog-data/dialog-data.component';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent {
   constructor(public dialog: MatDialog,) {}
   openPopupChart() {
-    this.dialog.open(PopupChartComponent, {
+    this.dialog.open(DialogDataComponent, {
       data : {},
       disableClose: false,
       width: '90%',
