@@ -12,13 +12,9 @@ export class AppComponent {
   openPopupChart() {
     this.dialog.open(PopupChartComponent, {
       data : {},
-      disableClose: true,
-      width: '80%',
-      panelClass: 'custom-modalbox',
-      // position: {
-      //   bottom: '0px',
-      //   left:'0px'
-      // }
+      disableClose: false,
+      width: '90%',
+      panelClass: 'custom-chart-box',
     });
   }
 }

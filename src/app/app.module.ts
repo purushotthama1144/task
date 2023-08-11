@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
@@ -13,21 +13,25 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTreeModule} from '@angular/material/tree';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { NgGanttEditorModule } from 'ng-gantt';
 import { NgApexchartsModule } from 'ng-apexcharts';
 import { PopupChartComponent } from './popup-chart/popup-chart.component';
+import { PopupTableComponent } from './popup-table/popup-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,  
     ChartComponent,
     TableComponent,
-    PopupChartComponent
+    PopupChartComponent,
+    PopupTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
     MatTableModule,
     MatExpansionModule,
     MatIconModule,
@@ -37,8 +41,10 @@ import { PopupChartComponent } from './popup-chart/popup-chart.component';
     MatButtonModule,
     MatTreeModule,
     MatDialogModule,
+    MatPaginatorModule,
     NgApexchartsModule,
-    NgGanttEditorModule
+    NgGanttEditorModule,
+    
   ],
   providers: [ChecklistDatabase],
   bootstrap: [AppComponent]
