@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ChartComponent } from 'ng-apexcharts';
 import { dataList, barChartData, sectorData } from './data'
 
@@ -8,8 +8,10 @@ import { dataList, barChartData, sectorData } from './data'
   styleUrls: ['./popup-chart.component.css']
 })
 
-export class PopupChartComponent implements OnInit {
+export class PopupChartComponent implements OnInit , AfterViewInit {
+  
   @ViewChild('chart') chart: ChartComponent = {} as ChartComponent;
+  @Output() allChartLoad = new EventEmitter<boolean>();
   date: any;
   shortTerm: any;
   intermediateTerm: any;
@@ -146,6 +148,12 @@ export class PopupChartComponent implements OnInit {
     this.exchangeLevelBearishBarChart();
     this.exchangeLevelSma50BarChart();
     this.exchangeLevelSma200BarChart();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.allChartLoad.emit(true);
+    }, 2000); // Adjust the delay as needed
   }
 
   shortTermChart() {

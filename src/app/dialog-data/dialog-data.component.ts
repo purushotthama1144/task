@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./dialog-data.component.css']
 })
 export class DialogDataComponent {
-
+  chartLoaded = false;
+  
+  onAllChartLoad(loaded: boolean) {
+    this.chartLoaded = loaded;
+  }
 }

@@ -1,7 +1,7 @@
 <div class="dialog-box">
     <mat-dialog-content>
-        <app-popup-chart></app-popup-chart>
-        <app-popup-table></app-popup-table>
+        <app-popup-chart (allChartLoad)="onAllChartLoad($event)"></app-popup-chart>
+        <app-popup-table *ngIf="chartLoaded"></app-popup-table>
     </mat-dialog-content>
     <mat-dialog-actions align="end">
         <button mat-button mat-dialog-close>Close</button>
