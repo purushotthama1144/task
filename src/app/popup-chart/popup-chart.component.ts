@@ -153,7 +153,7 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.allChartLoad.emit(true);
-    }, 2000); // Adjust the delay as needed
+    }, 2000);
   }
 
   shortTermChart() {
