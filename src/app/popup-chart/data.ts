@@ -2,23 +2,23 @@ export const dataList = {
   opinion: [
     {
       name: 'A',
-      value: 10
+      value: 1
     },
     {
       name: 'B',
-      value: 20
+      value: 1
     },
     {
       name: 'C',
-      value: 30
+      value: 3
     },
     {
       name: 'D',
-      value: 25
+      value: 2.5
     },
     {
       name: 'E',
-      value: 15
+      value: 1.5
     },
   ]
 }
@@ -32,11 +32,11 @@ export const barChartData = {
     },
     {
       name: 'B',
-      value: 5.42
+      value: 0.42
     },
     {
       name: 'C',
-      value: 5.9
+      value: 0.2
     },
     {
       name: 'D',
@@ -44,11 +44,11 @@ export const barChartData = {
     },
     {
       name: 'E',
-      value: 12.6
+      value: 1.6
     },
     {
       name: 'F',
-      value: 12.6
+      value: 2.6
     },
     {
       name: 'G',

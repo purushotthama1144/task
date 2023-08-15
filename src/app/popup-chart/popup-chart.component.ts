@@ -102,9 +102,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
 
   ngOnInit(): void {
     this.date = Date.now()
-    this.shortTermChart();
-    this.intermediateTermChart();
-    this.longTermChart();
+    // this.shortTermChart();
+    // this.intermediateTermChart();
+    // this.longTermChart();
     this.dowThirty();
     this.sandpFiveHundred();
     this.NASDAQ();
@@ -153,7 +153,7 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.allChartLoad.emit(true);
-    }, 2000);
+    }, 2000); // Adjust the delay as needed
   }
 
   shortTermChart() {
@@ -178,7 +178,10 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
           bottom: -80
         }
       },
-      labels: dataLabels,
+      legend:{
+        show: false,
+        
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -206,6 +209,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         type: "pie"
       },
       labels: dataLabels,
+      legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -233,6 +239,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         type: "pie"
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -253,35 +262,6 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     let dataLabels = dataList.opinion.map(sector => sector.name);
     let dataSeries = dataList.opinion.map(sector => sector.value);
 
-    this.dowDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-
     this.dowShortTerm = {
       series: dataSeries,
       chart: {
@@ -301,13 +281,18 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
+      legend: {
+        show: false // Hide the legend
+      },
+      dataLabels: {
+        enabled: false // Hide the data labels
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -324,67 +309,69 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     };
 
     this.dowIndexElement = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "Index component up down:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
+          name: "dow 30",
+          data: dataSeries
+        }
+      ],
+      chart: {
+        height: 250,
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            position: "top"
           }
         }
-      ]
+      },
+      
+      dataLabels: {
+        enabled: true,
+        formatter: function (val: any) {
+          return val + "%";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
+
+      xaxis: {
+        categories: dataLabels,
+        position: "top",
+        labels: {
+          offsetY: -5
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35
+        }
+      },
+
+      yaxis: {
+        labels: {
+          show: true,
+        }
+      },
+      title: {
+        position: "top",
+        text: "Dow 30",
+        floating: 0,
+        offsetY: -5,
+        align: "center",
+        style: {
+          color: "#444"
+        }
+      }
     };
   }
 
   sandpFiveHundred() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.sandpDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.sandpShortTerm = {
       series: dataSeries,
@@ -405,13 +392,18 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -428,67 +420,69 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     };
 
     this.sandpIndexElement = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "Index component up down:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
+          name: "S&P 500",
+          data: dataSeries
+        }
+      ],
+      chart: {
+        height: 250,
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            position: "top"
           }
         }
-      ]
+      },
+      
+      dataLabels: {
+        enabled: true,
+        formatter: function (val: any) {
+          return val + "%";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
+
+      xaxis: {
+        categories: dataLabels,
+        position: "top",
+        labels: {
+          offsetY: -5
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35
+        }
+      },
+
+      yaxis: {
+        labels: {
+          show: true,
+        }
+      },
+      title: {
+        position: "top",
+        text: "S&P 500",
+        floating: 0,
+        offsetY: -5,
+        align: "center",
+        style: {
+          color: "#444"
+        }
+      }
     };
   }
 
   NASDAQ() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.nasdaqDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.nasdaqShortTerm = {
       series: dataSeries,
@@ -509,13 +503,18 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -532,67 +531,70 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     };
 
     this.nasdaqIndexElement = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "Index component up down:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
+          name: "NASDAQ",
+          data: dataSeries
+        }
+      ],
+      chart: {
+        height: 250,
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            position: "top"
           }
         }
-      ]
+      },
+      
+      dataLabels: {
+        enabled: true,
+        formatter: function (val: any) {
+          return val + "%";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
+
+      xaxis: {
+        categories: dataLabels,
+        position: "top",
+        labels: {
+          offsetY: -5
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35
+        }
+      },
+
+      yaxis: {
+        labels: {
+          show: true,
+        }
+      },
+      title: {
+        position: "top",
+        text: "NASDAQ",
+        floating: 0,
+        offsetY: -5,
+        align: "center",
+        style: {
+          color: "#444"
+        }
+      }
     };
+    
   }
 
   midCap() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.midcapDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.midcapShortTerm = {
       series: dataSeries,
@@ -613,13 +615,18 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -636,33 +643,65 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     };
 
     this.midcapIndexElement = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "Index component up down:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
+          name: "Midcap",
+          data: dataSeries
+        }
+      ],
+      chart: {
+        height: 250,
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            position: "top"
           }
         }
-      ]
+      },
+      
+      dataLabels: {
+        enabled: true,
+        formatter: function (val: any) {
+          return val + "%";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
+
+      xaxis: {
+        categories: dataLabels,
+        position: "top",
+        labels: {
+          offsetY: -5
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35
+        }
+      },
+
+      yaxis: {
+        labels: {
+          show: true,
+        }
+      },
+      title: {
+        position: "top",
+        text: "Midcap",
+        floating: 0,
+        offsetY: -5,
+        align: "center",
+        style: {
+          color: "#444"
+        }
+      }
     };
+
   }
 
   smallCap() {
@@ -683,6 +722,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -724,6 +766,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -753,6 +798,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -787,6 +835,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -828,6 +879,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -862,6 +916,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -903,6 +960,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -937,6 +997,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -978,6 +1041,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1012,6 +1078,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1053,6 +1122,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1087,6 +1159,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1128,6 +1203,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1162,6 +1240,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1203,6 +1284,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1237,6 +1321,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1278,6 +1365,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1312,6 +1402,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1353,6 +1446,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1387,6 +1483,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1428,6 +1527,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1462,6 +1564,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1503,6 +1608,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1537,6 +1645,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1578,6 +1689,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1612,6 +1726,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1653,6 +1770,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1687,6 +1807,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1728,6 +1851,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1762,6 +1888,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1803,6 +1932,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1837,6 +1969,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1878,6 +2013,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1912,6 +2050,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1953,6 +2094,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -1987,6 +2131,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2028,6 +2175,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2062,6 +2212,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2103,6 +2256,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2137,6 +2293,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2178,6 +2337,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2212,6 +2374,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2253,6 +2418,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2287,6 +2455,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2328,6 +2499,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2362,6 +2536,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2403,6 +2580,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2437,6 +2617,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2478,6 +2661,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2512,6 +2698,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2553,6 +2742,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2587,6 +2779,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
@@ -2628,6 +2823,9 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
         }
       },
       labels: dataLabels,
+legend:{
+        show: false,
+      },
       responsive: [
         {
           breakpoint: 480,
