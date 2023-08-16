@@ -14,6 +14,7 @@ export class AppComponent {
       data : {},
       disableClose: false,
       width: '96%',
+      maxWidth:'96vw',
       panelClass: 'custom-chart-box',
     });
   }
