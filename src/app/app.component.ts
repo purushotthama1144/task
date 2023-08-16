@@ -13,7 +13,7 @@ export class AppComponent {
     this.dialog.open(DialogDataComponent, {
       data : {},
       disableClose: false,
-      width: '90%',
+      width: '96%',
       panelClass: 'custom-chart-box',
     });
   }

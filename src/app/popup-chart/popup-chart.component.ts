@@ -8,78 +8,47 @@ import { dataList, barChartData, sectorData } from './data'
   styleUrls: ['./popup-chart.component.css']
 })
 
-export class PopupChartComponent implements OnInit , AfterViewInit {
-  
+export class PopupChartComponent implements OnInit, AfterViewInit {
+
   @ViewChild('chart') chart: ChartComponent = {} as ChartComponent;
   @Output() allChartLoad = new EventEmitter<boolean>();
   date: any;
   shortTerm: any;
   intermediateTerm: any;
-  longTerm: any;
-  dowDonut: any;
   dowShortTerm: any;
-  dowIndexElement: any;
-  sandpDonut: any;
+  dowIndexElement:any;
   sandpShortTerm: any;
-  sandpIndexElement: any;
-  nasdaqDonut: any;
+  sandpIndexElement:any;
   nasdaqShortTerm: any;
-  nasdaqIndexElement: any;
-  midcapDonut: any;
+  nasdaqIndexElement:any;
   midcapShortTerm: any;
   midcapIndexElement: any;
-  smallcapDonut: any;
   smallcapShortTerm: any;
   smallcapIndexElement: any;
-  europeonDonut: any;
   europeonShortTerm: any;
-  emergingDonut: any;
   emergingShortTerm: any;
-  southAmericanDonut: any;
   southAmericanShortTerm: any;
-  biotechnologyDonut: any;
   biotechnologyShortTerm: any;
-  semiconductorDonut: any;
   semiconductorShortTerm: any;
-  airlineDonut: any;
   airlineShortTerm: any;
-  regionalBankDonut: any;
   regionalBankShortTerm: any;
-  solarDonut: any;
   solarShortTerm: any;
-  healthcareDonut: any;
   healthcareShortTerm: any;
-  builderDonut: any;
   builderShortTerm: any;
-  materialDonut: any;
   materialShortTerm: any;
-  communicationDonut: any;
   communicationShortTerm: any;
-  financialDonut: any;
   financialShortTerm: any;
-  technologyDonut: any;
   technologyShortTerm: any;
-  realEstateDonut: any;
   realEstateShortTerm: any;
-  consumerDicretionDonut: any;
   consumerDicretionShortTerm: any;
-  consumerStapleDonut: any;
   consumerStapleShortTerm: any;
-  energyDonut: any;
   energyShortTerm: any;
-  OilGasDonut: any;
   OilGasShortTerm: any;
-  retailDonut: any;
   retailShortTerm: any;
-  industrialDonut: any;
   industrialShortTerm: any;
-  utilityDonut: any;
   utilityShortTerm: any;
-  commodityIndexDonut: any;
   commodityIndexShortTerm: any;
-  treasuryDonut: any;
   treasuryShortTerm: any;
-  goldDonut: any;
   goldShortTerm: any;
 
   dowBarChart: any;
@@ -101,10 +70,7 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.date = Date.now()
-    // this.shortTermChart();
-    // this.intermediateTermChart();
-    // this.longTermChart();
+    this.date = Date.now();
     this.dowThirty();
     this.sandpFiveHundred();
     this.NASDAQ();
@@ -156,108 +122,6 @@ export class PopupChartComponent implements OnInit , AfterViewInit {
     }, 2000); // Adjust the delay as needed
   }
 
-  shortTermChart() {
-    const dataLabels = dataList.opinion.map(sector => sector.name);
-    const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.shortTerm = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      plotOptions: {
-        pie: {
-          startAngle: -90,
-          endAngle: 90,
-          offsetY: 10
-        }
-      },
-      grid: {
-        padding: {
-          bottom: -80
-        }
-      },
-      legend:{
-        show: false,
-        
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-  }
-
-  intermediateTermChart() {
-    const dataLabels = dataList.opinion.map(sector => sector.name);
-    const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.intermediateTerm = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "pie"
-      },
-      labels: dataLabels,
-      legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-  }
-
-  longTermChart() {
-    const dataLabels = dataList.opinion.map(sector => sector.name);
-    const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.longTerm = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "pie"
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-  }
-
   dowThirty() {
     let dataLabels = dataList.opinion.map(sector => sector.name);
     let dataSeries = dataList.opinion.map(sector => sector.value);
@@ -297,9 +161,7 @@ legend:{
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -326,7 +188,7 @@ legend:{
           }
         }
       },
-      
+
       dataLabels: {
         enabled: true,
         formatter: function (val: any) {
@@ -408,9 +270,7 @@ legend:{
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -437,7 +297,7 @@ legend:{
           }
         }
       },
-      
+
       dataLabels: {
         enabled: true,
         formatter: function (val: any) {
@@ -519,9 +379,7 @@ legend:{
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -548,7 +406,7 @@ legend:{
           }
         }
       },
-      
+
       dataLabels: {
         enabled: true,
         formatter: function (val: any) {
@@ -589,7 +447,7 @@ legend:{
         }
       }
     };
-    
+
   }
 
   midCap() {
@@ -631,9 +489,7 @@ legend:{
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -660,7 +516,7 @@ legend:{
           }
         }
       },
-      
+
       dataLabels: {
         enabled: true,
         formatter: function (val: any) {
@@ -708,38 +564,6 @@ legend:{
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
 
-    this.smallcapDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-
     this.smallcapShortTerm = {
       series: dataSeries,
       chart: {
@@ -759,23 +583,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -785,73 +609,69 @@ legend:{
     };
 
     this.smallcapIndexElement = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "Index component up down:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
+      series: [
         {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
+          name: "Midcap",
+          data: dataSeries
+        }
+      ],
+      chart: {
+        height: 250,
+        type: "bar"
+      },
+      plotOptions: {
+        bar: {
+          dataLabels: {
+            position: "top"
           }
         }
-      ]
+      },
+
+      dataLabels: {
+        enabled: true,
+        formatter: function (val: any) {
+          return val + "%";
+        },
+        offsetY: -20,
+        style: {
+          fontSize: "12px",
+          colors: ["#304758"]
+        }
+      },
+
+      xaxis: {
+        categories: dataLabels,
+        position: "top",
+        labels: {
+          offsetY: -5
+        },
+        tooltip: {
+          enabled: true,
+          offsetY: -35
+        }
+      },
+
+      yaxis: {
+        labels: {
+          show: true,
+        }
+      },
+      title: {
+        position: "top",
+        text: "Smallcap",
+        floating: 0,
+        offsetY: -5,
+        align: "center",
+        style: {
+          color: "#444"
+        }
+      }
     };
   }
 
   europeonMarket() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.europeonDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.europeonShortTerm = {
       series: dataSeries,
@@ -872,23 +692,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -901,38 +721,6 @@ legend:{
   emergingMarket() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.emergingDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.emergingShortTerm = {
       series: dataSeries,
@@ -953,23 +741,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -982,38 +770,6 @@ legend:{
   southAmericanMarket() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.southAmericanDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut"
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.southAmericanShortTerm = {
       series: dataSeries,
@@ -1034,23 +790,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1064,43 +820,11 @@ legend:{
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
 
-    this.biotechnologyDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-
     this.biotechnologyShortTerm = {
       series: dataSeries,
       chart: {
         width: 300,
-        type: "donut",
+        type: "donut"
       },
       plotOptions: {
         pie: {
@@ -1115,23 +839,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1145,43 +869,11 @@ legend:{
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
 
-    this.semiconductorDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
-
     this.semiconductorShortTerm = {
       series: dataSeries,
       chart: {
         width: 300,
-        type: "donut",
+        type: "donut"
       },
       plotOptions: {
         pie: {
@@ -1196,23 +888,23 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
-        show: false,
+      legend: {
+        show: false
+      },
+      dataLabels: {
+        enabled: false
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1225,38 +917,6 @@ legend:{
   airlines() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.airlineDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.airlineShortTerm = {
       series: dataSeries,
@@ -1277,23 +937,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1307,37 +965,6 @@ legend:{
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
 
-    this.regionalBankDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.regionalBankShortTerm = {
       series: dataSeries,
@@ -1358,23 +985,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1387,38 +1012,6 @@ legend:{
   solar() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.solarDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.solarShortTerm = {
       series: dataSeries,
@@ -1439,23 +1032,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1468,38 +1059,6 @@ legend:{
   healthcare() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.healthcareDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.healthcareShortTerm = {
       series: dataSeries,
@@ -1520,23 +1079,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1549,38 +1106,6 @@ legend:{
   homeBuilder() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.builderDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.builderShortTerm = {
       series: dataSeries,
@@ -1601,23 +1126,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1630,38 +1153,6 @@ legend:{
   materials() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.materialDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.materialShortTerm = {
       series: dataSeries,
@@ -1682,23 +1173,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1711,38 +1200,6 @@ legend:{
   communication() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.communicationDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.communicationShortTerm = {
       series: dataSeries,
@@ -1763,23 +1220,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1792,38 +1247,6 @@ legend:{
   financial() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.financialDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.financialShortTerm = {
       series: dataSeries,
@@ -1844,23 +1267,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1873,38 +1294,6 @@ legend:{
   technology() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.technologyDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.technologyShortTerm = {
       series: dataSeries,
@@ -1925,23 +1314,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -1954,38 +1341,6 @@ legend:{
   realEstate() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.realEstateDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.realEstateShortTerm = {
       series: dataSeries,
@@ -2006,23 +1361,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2035,38 +1388,6 @@ legend:{
   consumerDicretion() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.consumerDicretionDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.consumerDicretionShortTerm = {
       series: dataSeries,
@@ -2087,23 +1408,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2116,38 +1435,6 @@ legend:{
   consumerStaple() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.consumerStapleDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.consumerStapleShortTerm = {
       series: dataSeries,
@@ -2168,23 +1455,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2197,38 +1482,6 @@ legend:{
   energy() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.energyDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.energyShortTerm = {
       series: dataSeries,
@@ -2249,23 +1502,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2278,38 +1529,6 @@ legend:{
   OilGas() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.OilGasDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.OilGasShortTerm = {
       series: dataSeries,
@@ -2330,23 +1549,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2359,38 +1576,6 @@ legend:{
   retail() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.retailDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.retailShortTerm = {
       series: dataSeries,
@@ -2411,23 +1596,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2440,38 +1623,6 @@ legend:{
   industrial() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.industrialDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.industrialShortTerm = {
       series: dataSeries,
@@ -2492,23 +1643,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2521,38 +1670,6 @@ legend:{
   utilities() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.utilityDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.utilityShortTerm = {
       series: dataSeries,
@@ -2573,23 +1690,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2602,38 +1717,6 @@ legend:{
   commodityIndex() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.commodityIndexDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.commodityIndexShortTerm = {
       series: dataSeries,
@@ -2654,23 +1737,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2683,38 +1764,6 @@ legend:{
   treasury() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.treasuryDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.treasuryShortTerm = {
       series: dataSeries,
@@ -2735,23 +1784,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2764,38 +1811,6 @@ legend:{
   gold() {
     const dataLabels = dataList.opinion.map(sector => sector.name);
     const dataSeries = dataList.opinion.map(sector => sector.value);
-
-    this.goldDonut = {
-      series: dataSeries,
-      chart: {
-        width: 300,
-        type: "donut",
-      },
-      title: {
-        text: "doughnut Doughnut Chart:",
-        align: "center",
-        style: {
-          fontSize: "12px"
-        }
-      },
-      labels: dataLabels,
-legend:{
-        show: false,
-      },
-      responsive: [
-        {
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: "bottom"
-            }
-          }
-        }
-      ]
-    };
 
     this.goldShortTerm = {
       series: dataSeries,
@@ -2816,23 +1831,21 @@ legend:{
         }
       },
       title: {
-        text: "short term opinion:",
+        text: "",
         align: "center",
         style: {
           fontSize: "12px"
         }
       },
       labels: dataLabels,
-legend:{
+      legend: {
         show: false,
       },
       responsive: [
         {
           breakpoint: 480,
           options: {
-            chart: {
-              width: 200
-            },
+            
             legend: {
               position: "bottom"
             }
@@ -2913,7 +1926,7 @@ legend:{
     this.spBarChart = {
       series: [
         {
-          name: "Dow",
+          name: "S&P 500",
           data: dataSeries
         }
       ],
@@ -2959,7 +1972,7 @@ legend:{
       },
       title: {
         position: "top",
-        text: "Dow 30",
+        text: "S&P 500",
         floating: 0,
         offsetY: -5,
         align: "center",
@@ -3151,7 +2164,7 @@ legend:{
       },
       title: {
         position: "top",
-        text: "Midcap",
+        text: "Smallcap",
         floating: 0,
         offsetY: -5,
         align: "center",
@@ -3179,6 +2192,7 @@ legend:{
       },
       plotOptions: {
         bar: {
+          horizontal: true,
           colors: {
             ranges: [
               {
@@ -3193,16 +2207,13 @@ legend:{
               }
             ]
           },
-          columnWidth: "80%"
+          columnWidth: "100%"
         }
       },
       dataLabels: {
         enabled: false
       },
       yaxis: {
-        title: {
-          text: "Sector Heat Map"
-        },
         labels: {
           formatter: function (y: any) {
             return y.toFixed(0) + "%";
@@ -3212,9 +2223,6 @@ legend:{
       xaxis: {
         type: "datetime",
         categories: dataLabels,
-        labels: {
-          rotate: -90
-        }
       }
     };
   }
@@ -3366,7 +2374,7 @@ legend:{
         ]
       },
       title: {
-        text: "Industry Heat Map"
+        // text: "Industry Heat Map"
       },
       grid: {
         padding: {
@@ -3523,7 +2531,7 @@ legend:{
         ]
       },
       title: {
-        text: "Thematics Heat Map"
+        // text: "Thematics Heat Map"
       },
       grid: {
         padding: {
@@ -3727,7 +2735,7 @@ legend:{
       },
       title: {
         position: "top",
-        text: "Exchange level bearish candle summary",
+        text: "Exchange level bearish",
         floating: 0,
         offsetY: -5,
         align: "center",
