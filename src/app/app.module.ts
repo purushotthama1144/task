@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChartComponent } from './chart/chart.component';
-import { ChecklistDatabase, TableComponent } from './table/table.component';
+import { TableComponent } from './table/table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import {MatIconModule} from '@angular/material/icon';
@@ -50,7 +50,7 @@ import { DialogDataComponent } from './dialog-data/dialog-data.component';
     NgGanttEditorModule,
     
   ],
-  providers: [ChecklistDatabase],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
