@@ -95,4 +95,8 @@ export class TableComponent {
     }
     this.checkAllParents(node);
   }
+
+  addSubTask(node:any) {
+    console.log(node)
+  }
 }
